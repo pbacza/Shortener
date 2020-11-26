@@ -14,9 +14,6 @@ export default class LinkItem extends Vue {
   @Prop()
   public link!: string;
 
-  @Prop()
-  public originalLink!: string;
-
   copyLinkToClipboard(): void {
     copy(this.link);
   }
