@@ -5,12 +5,21 @@ The project allow for shortening links in to easy to share form. The frontend al
 
 ## How to run project
 
-To run project it is enough to have docker installed and run following command:
+Firts checkout the project
+```
+git clone https://github.com/pbacza/shortener.git
+```
+
+Go to the project directory:
+```
+cd ./shortener
+```
+And run it with command:
 ```
 docker-compose up --build
 ```
 
-It will make sure that new version of images for the front end and the backend are build and will start all the services.  
+It will make sure that new version of images for the frontend and the backend are build and will start all the services.  
 The front end will be available at `http://localhost:8080`
 
 
