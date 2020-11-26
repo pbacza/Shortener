@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - PORT=8080
+      - CONNECTION_STRING=mongodb://database:27017/shortener
+      - WAIT_HOSTS=database:27017
+
+  database:
+    image: mongo:4.4-bionic
+    volumes:
+      - mongo-data:/data/db
+      - mongo-data-config:/data/configdb
+
+  tests:
+    build:
+      context: ./
+      dockerfile: Dockerfile.tests
+    environment:
+      - WAIT_HOSTS=backend:8080
+
+volumes:
+  mongo-data:
+  mongo-data-config:

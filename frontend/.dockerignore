@@ -1,0 +1,9 @@
+.env*
+
+.git
+.cache
+.vscode
+
+node_modules
+
+*.md

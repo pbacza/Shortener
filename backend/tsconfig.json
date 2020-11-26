@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"target": "ES2015",
+		"module": "commonjs",
+		"lib": ["ESNext"],
+
+		"outDir": "./dist",
+		"removeComments": true,
+		"strict": true,
+
+		"baseUrl": ".",
+		"paths": {
+			"@infrastructure": ["src/infrastructure/index.ts"],
+			"@infrastructure/*": ["src/infrastructure/*"],
+			"@links/*": ["src/modules/links/*"],
+			"@modules/*": ["src/modules/*"],
+			"@utils": ["src/utils/index.ts"]
+		},
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	}
+}

@@ -1,0 +1,15 @@
+FROM node:14.15-alpine
+
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
+RUN chmod +x /wait
+
+WORKDIR /shortener-tests
+
+COPY ./tsconfig.json ./jest.config.js ./entrypoint.tests.sh ./
+COPY package*.json ./
+
+RUN npm ci 
+
+COPY tests ./tests
+
+ENTRYPOINT ["./entrypoint.tests.sh"]
