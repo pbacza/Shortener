@@ -11,7 +11,7 @@ export class ExpressServer implements Server {
 
 	async start(): Promise<void> {
 		if (this.app) {
-			new Promise((resolve) => {
+			await new Promise((resolve) => {
 				this.app?.listen(this.port, () => {
 					console.log(`Listening at http://localhost:${this.port}`);
 					resolve(true);
