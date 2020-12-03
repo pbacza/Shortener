@@ -1,1 +1,1 @@
-export * from "./generateUuidv4";
+export * from "./generate-uuidv4";
