@@ -22,15 +22,15 @@ export class Application {
 	}
 
 	async start(): Promise<void> {
-		this.database?.connect();
+		await this.database?.connect();
 		await this.server?.start();
 	}
 
-	stop(): void {
+	async stop(): Promise<void> {
 		if (this.server) {
 			this.server.stop();
 			this.server = undefined;
-			this.database?.disconnect();
+			await this.database?.disconnect();
 			this.database = undefined;
 		}
 	}

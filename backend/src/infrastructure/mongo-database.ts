@@ -6,12 +6,12 @@ export class MongoDatabase implements Database {
 
 	constructor(private connectionString: string) {}
 
-	connect(): void {
+	async connect(): Promise<void> {
 		if (this.database) {
 			return;
 		}
 
-		Mongoose.connect(this.connectionString, {
+		await Mongoose.connect(this.connectionString, {
 			useUnifiedTopology: true,
 			useNewUrlParser: true,
 			useCreateIndex: true,
@@ -27,11 +27,11 @@ export class MongoDatabase implements Database {
 		});
 	}
 
-	disconnect(): void {
+	async disconnect(): Promise<void> {
 		if (!this.database) {
 			return;
 		}
 
-		Mongoose.disconnect();
+		await Mongoose.disconnect();
 	}
 }
